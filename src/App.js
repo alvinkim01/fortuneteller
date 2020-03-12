@@ -5,8 +5,9 @@ import Home from './components/Home';
 import Texts from './components/Texts';
 import Words from './components/Words';
 import Show from './components/Show';
-import Medium from './components/Medium';
+import Medium from './components/MediumToday';
 import Confirm from './components/Confirm';
+import MediumToday from './components/MediumToday';
 
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/texts" component={Texts}/>
                         <Route exact path="/words" component={Words}/>
-                        <Route exact path="/medium" component={Medium}/>
+                        <Route exact path="/mediumtoday" component={MediumToday}/>
                         <Route exact path="/confirm" component={Confirm}/>
                         <Route exact path="/show/:id" component={Show}/>
                         

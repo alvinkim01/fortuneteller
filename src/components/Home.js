@@ -1,9 +1,7 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,130 +14,119 @@ import Avatar from '@material-ui/core/Avatar';
 import { red } from '@material-ui/core/colors';
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  card: {
+    maxWidth: 300,
+    margin: "auto",
+    transition: "0.3s",
+    boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+    "&:hover": {
+      boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+    }
   },
   media: {
-    height: 140,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "40%",
+    height : 40
   },
-  marginAutoItem: {
-    margin: 'auto'
+  content: {
+    textAlign: "left",
+    padding: theme.spacing.unit * 3
   },
+  heading: {
+    fontWeight: "bold"
+  },
+  subheading: {
+    lineHeight: 1.8
+  },
+ 
   avatar: {
-    backgroundColor: red[500],
-  },
+      backgroundColor: red[500],
+    // display: "inline-block",
+    // border: "2px solid white"
+    // "&:not(:first-of-type)": {
+    //   marginLeft: -theme.spacing.unit
+    
+  }
 });
  
+//   const [] = React.useState(false);
 
-class Home extends React.Component {     
+class Home extends React.Component {   
+    
  
     render() { 
-        const { classes } = this.props;
+        const { classes } = this.props;     
        
-        return (
-          <div className={classes.root}>
-            <Grid container spacing={3}>  
-              <Grid item xs={3}>
-                <Paper className={classes.paper}>             
-                  <Card>
-                    <CardHeader
-                          avatar={
-                          <Avatar aria-label="logo" className={classes.avatar}>
-                              F
-                          </Avatar>
-                          }
-                      />
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image="/images/day_fortune.jpg"
-                        title="Contemplative Reptile"
-                      />
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          오늘의운세
-                        </Typography>
-                      </CardContent>  
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                      <Link component={RouterLink} to={"/medium"}>오늘의 운세보기</Link>                     
-                      </Button>
-                    </CardActions>            
-                  </Card>
-                </Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper className={classes.paper}>             
-                  <Card>
-                    <CardHeader
-                          avatar={
-                          <Avatar aria-label="logo" className={classes.avatar}>
-                              F
-                          </Avatar>
-                          }
-                      />
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image="/images/tojungbigul.png"
-                        title="Contemplative Reptile"
-                      />
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          토정비결
-                        </Typography>
-                      </CardContent>  
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        Action
-                      </Button>
-                    </CardActions>            
-                  </Card>
-                </Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper className={classes.paper}>             
-                  <Card>
-                    <CardHeader
-                          avatar={
-                          <Avatar aria-label="logo" className={classes.avatar}>
-                              F
-                          </Avatar>
-                          }
-                      />
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image="/images/monthly_fortune.png"
-                        title="Contemplative Reptile"
-                      />
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          이달의운세
-                        </Typography>
-                      </CardContent>  
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        Action
-                      </Button>
-                    </CardActions>            
-                  </Card>
-                </Paper>
-              </Grid>
-            </Grid>
-          </div>
+        return (     
+            <Card className={classes.card}>
+               <CardHeader
+                    avatar={
+                    <Avatar aria-label="logo" className={classes.avatar}>
+                        F
+                    </Avatar>
+                    }
+                />
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image="/images/day_fortune.jpg"
+                title="Contemplative Reptile"
+              />
+              <CardContent className={classes.content}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  오늘의운세
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  오늘의 운세를 말하는 사이트
+                </Typography>
+              </CardContent>
+                <CardActions>
+                <Button variant="outlined" color="primary">
+                <Link component={RouterLink} to={"/mediumtoday"}>오늘의 운세보기</Link>  
+                </Button>
+              </CardActions>     
+                <CardMedia
+                  className={classes.media}
+                  image="/images/tojungbigul.png"
+                  title="Contemplative Reptile"
+                />
+                <CardContent className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    2020 토정비결
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    2020년 1년의 운세(2020년 토정비결)
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button variant="outlined" color="primary">
+                    토정비결 운세보기
+                  </Button>
+                </CardActions>  
+                <CardMedia
+                  className={classes.media}
+                  image="/images/monthly_fortune.png"
+                  title="Contemplative Reptile"
+                />
+                <CardContent className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    2020 월간운세
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    2020년 1년의 월간 운세를 봄
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button variant="outlined" color="primary">
+                    월간 운세보기
+                  </Button>
+                </CardActions>  
+            </CardActionArea>
+            
+          </Card>
+        
         );
-      }        
+        
     }
-
+}
 
 export default withStyles(styles)(Home);

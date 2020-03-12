@@ -24,8 +24,8 @@ const styles = theme => ({
     }
   },
   media: {
-    paddingTop: "20%",
-    height : 20
+    paddingTop: "60%",
+    height : 40
   },
   content: {
     textAlign: "left",
@@ -58,13 +58,13 @@ class Confirm extends React.Component {
        
         return (     
             <Card className={classes.card}>
-                  <CardHeader
+              <CardHeader
                 avatar={
                 <Avatar aria-label="logo" className={classes.avatar}>
                     F
                 </Avatar>
                 }
-            />         
+              />         
                 
             <CardActionArea>
               <CardContent className={classes.content}>
@@ -75,10 +75,7 @@ class Confirm extends React.Component {
               </CardContent>
 
               <CardContent className={classes.content}>
-              <Typography gutterBottom  component="h5">
-                ------------------------------------------
-                </Typography>
-
+  
     
                  <CardMedia
                     className={classes.media}
@@ -90,9 +87,6 @@ class Confirm extends React.Component {
                   오늘의 운세 총론 풀이가 완료 되었습니다.
                 </Typography> */}
 
-                <Typography gutterBottom  component="h5">
-                ------------------------------------------
-                </Typography> 
               </CardContent>
 
               <CardActions>
@@ -104,7 +98,11 @@ class Confirm extends React.Component {
               
               </CardActions>      
             </CardActionArea>  
-             
+            <CardMedia
+              className={classes.media}
+              image="/images/graph.png"
+              title="cartoon"
+            />                   
           </Card>
         
         );

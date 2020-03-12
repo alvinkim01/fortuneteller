@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
-// import { Link as RouterLink } from 'react-router-dom';
-// import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
+import { red } from '@material-ui/core/colors';
 import firebase from '../Firebase';
 // import { Link } from 'react-router-dom';
 
@@ -19,8 +22,8 @@ const styles = theme => ({
 	  }
 	},
 	media: {
-	  paddingTop: "20%",
-	  height : 50
+	  paddingTop: "60%",
+	  height : 40
 	},
 	content: {
 	  textAlign: "left",
@@ -34,9 +37,15 @@ const styles = theme => ({
 	},
    
 	avatar: {
-	
+		backgroundColor: red[500],
+	  // display: "inline-block",
+	  // border: "2px solid white"
+	  // "&:not(:first-of-type)": {
+	  //   marginLeft: -theme.spacing.unit
+	  
 	}
   });
+   
 
 
 class Show extends Component {
@@ -68,21 +77,20 @@ class Show extends Component {
 	render(){
 		const { classes } = this.props;  
 		return(
-            <Card className={classes.card}>                
+            <Card className={classes.card}>    
+				<CardHeader
+                avatar={
+                <Avatar aria-label="logo" className={classes.avatar}>
+                    F
+                </Avatar>
+                }
+              />                 
 				<CardContent className={classes.content}>
-				<Typography gutterBottom variant="h5" component="h2">
-					괘 :
-          		</Typography>
-          		<Typography variant="body2" color="textSecondary" component="p">
-				  {this.state.board.fortuneid}
-          		</Typography>
-				  <Typography gutterBottom variant="h5" component="h2">
-					title :
-          		</Typography>
-          		<Typography variant="body2" color="textSecondary" component="p">
+	
+          		<Typography gutterBottom variant="h6" component="h3">
 				  {this.state.board.title}
           		</Typography>
-				<Typography gutterBottom variant="h5" component="h2">
+				<Typography gutterBottom variant="h6" component="h3">
 					총운 :
           		</Typography>
           		<Typography variant="body2" color="textSecondary" component="p">

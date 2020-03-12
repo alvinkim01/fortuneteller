@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,31 +14,50 @@ import Avatar from '@material-ui/core/Avatar';
 import { red } from '@material-ui/core/colors';
 
 const styles = theme => ({
-    root: {
-        maxWidth: 345,
-      },
-      media: {
-        height: 140,
-        paddingTop: '56.25%', // 16:9
-      },
-      marginAutoItem: {
-        margin: 'auto'
-      },
-      avatar: {
-        backgroundColor: red[500],
-      },
-  });
+  card: {
+    maxWidth: 300,
+    margin: "auto",
+    transition: "0.3s",
+    boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+    "&:hover": {
+      boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+    }
+  },
+  media: {
+    paddingTop: "60%",
+    height : 40
+  },
+  content: {
+    textAlign: "left",
+    padding: theme.spacing.unit * 3
+  },
+  heading: {
+    fontWeight: "bold"
+  },
+  subheading: {
+    lineHeight: 1.8
+  },
+ 
+  avatar: {
+      backgroundColor: red[500],
+    // display: "inline-block",
+    // border: "2px solid white"
+    // "&:not(:first-of-type)": {
+    //   marginLeft: -theme.spacing.unit
+    
+  }
+});
  
 //   const [] = React.useState(false);
 
-class Home extends React.Component {   
+class Medium extends React.Component {   
     
  
     render() { 
         const { classes } = this.props;     
        
         return (     
-            <Card className={classes.root}>
+            <Card className={classes.card}>
                <CardHeader
                     avatar={
                     <Avatar aria-label="logo" className={classes.avatar}>
@@ -45,42 +66,44 @@ class Home extends React.Component {
                     }
                 />
             <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image="/images/day_fortune.jpg"
-                title="Contemplative Reptile"
-              />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Fortune of the today
+                  오늘의 운세 총론
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  오늘의 운세를
-                  말하는 사이트이면서
-                  다음사이트로 이동한다
+                  오늘의 운세 총론을 한눈에...
                 </Typography>
               </CardContent>
-              <CardMedia
-                className={classes.media}
-                image="/images/day_fortune.jpg"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Fortune of the today
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  오늘의 운세를
-                  말하는 사이트이면서
-                  다음사이트로 이동한다
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                운세보기
+              <CardActions>
+              <Button variant="outlined" color="primary">
+              <Link component={RouterLink} to={"/confirm"}>오늘의 운세보기</Link>                
               </Button>
-            </CardActions>            
+            </CardActions>     
+              {/* <CardMedia
+                className={classes.media}
+                image="/images/day_fortune.jpg"
+                title="Contemplative Reptile"
+              /> */}
+              <CardContent className={classes.content}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  성공 재물운
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  오늘 나의 재물운을 한눈에...
+                </Typography>
+              </CardContent>
+              <CardActions>
+              <Button variant="outlined" color="primary">
+
+                오늘의 재물 운세보기
+              </Button>
+            </CardActions>  
+            </CardActionArea>
+              <CardMedia
+              className={classes.media}
+              image="/images/atm.png"
+              title="cartoon"
+            />             
           </Card>
         
         );
@@ -88,4 +111,4 @@ class Home extends React.Component {
     }
 }
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Medium);
