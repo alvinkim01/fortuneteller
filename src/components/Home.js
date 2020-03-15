@@ -12,6 +12,13 @@ import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import { red } from '@material-ui/core/colors';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Radio from '@material-ui/core/Radio';
 
 const styles = theme => ({
   card: {
@@ -50,20 +57,63 @@ const styles = theme => ({
  
 //   const [] = React.useState(false);
 
-class Home extends React.Component {   
-    
+class Home extends React.Component {
+  
+  constructor() {
+    super();
+    this.state = {
+        dialog: false,
+        alias: '',
+        sex: '',
+        moon:'',
+        birthday:'',
+        male:'',
+        female:''
+
+    };
+}
+
+  handleDialogToggle = () => this.setState({
+    dialog: !this.state.dialog
+})
+handleValueChange = (e) => {
+    let nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
+    // if(e.target.value < 1) {
+    //     this.setState({weight: 1});
+    // }
+    // else if(e.target.value > 9) {
+    //     this.setState({weight: 9});
+    // }
+}
+// handleSubmit = () => {
+//     const word = {
+//         word: this.state.word,
+//         weight: this.state.weight
+//     }
+//     this.handleDialogToggle();
+//     if (!word.word && !word.weight) {
+//         return;
+//     }
+//     this._post(word);
+// }    
  
     render() { 
-        const { classes } = this.props;     
+        const { classes } = this.props; 
        
         return (     
             <Card className={classes.card}>
+              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                운세 기본정보입력
+              </Button>
                <CardHeader
                     avatar={
                     <Avatar aria-label="logo" className={classes.avatar}>
                         F
                     </Avatar>
                     }
+                    
                 />
             <CardActionArea>
               <CardMedia
@@ -91,15 +141,15 @@ class Home extends React.Component {
                 />
                 <CardContent className={classes.content}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    2020 토정비결
+                    2020 운세보기
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    2020년 1년의 운세(2020년 토정비결)
+                    2020년 1년의 운세(2020년 운세보기)
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button variant="outlined" color="primary">
-                    토정비결 운세보기
+                    2020년 운세보기
                   </Button>
                 </CardActions>  
                 <CardMedia
@@ -121,11 +171,43 @@ class Home extends React.Component {
                   </Button>
                 </CardActions>  
             </CardActionArea>
-            
-          </Card>
-        
-        );
-        
+            <div>        
+              <Dialog open={this.state.dialog} onClose={this.handleDialogToggle}>
+                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    Fortune Teller 는 점괘를 보기 위한 기본정보가 꼭 필요합니다.
+                    운세결과에 영향을 미치니 입력해 주십시요.
+                  </DialogContentText>
+                    <TextField label="별명" type="text" name="alias" value={this.state.alias} onChange={this.handleValueChange} /><br />
+                    <div>
+      <Radio
+        checked={selectedValue === 'male'}
+        onChange={this.handleValueChange}
+        value={this.state.sex}
+        name="male"
+        inputProps={{ 'aria-label': 'A' }}
+      />
+      <Radio
+        checked={selectedValue === 'female'}
+        onChange={this.handleValueChange}
+        value={this.state.sex}
+        name="female"
+        inputProps={{ 'aria-label': 'B' }}
+      />
+      </div>
+                    <TextField label="성별" type="number" name="sex" value={this.state.sex} onChange={this.handleValueChange} /><br />
+                    <TextField label="음력/양력/윤달" type="text" name="moon" value={this.state.moon} onChange={this.handleValueChange} /><br />
+                    <TextField label="생년월일" type="number" name="birthday" value={this.state.birthday} onChange={this.handleValueChange} /><br />
+                </DialogContent>
+                <DialogActions>
+                  <Button variant="contained" color="primary" onClick={this.handleSubmit}>확인</Button>
+                  <Button variant="outlined" color="primary" onClick={this.handleDialogToggle}>닫기</Button>
+                </DialogActions>
+              </Dialog>
+    </div>            
+          </Card>        
+        );        
     }
 }
 
