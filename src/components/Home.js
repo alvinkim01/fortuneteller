@@ -19,6 +19,15 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Calendar from 'react-calendar';
+import DatePicker from "react-datepicker"; 
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const styles = theme => ({
   card: {
@@ -52,6 +61,18 @@ const styles = theme => ({
     // "&:not(:first-of-type)": {
     //   marginLeft: -theme.spacing.unit
     
+  },
+  formControl: {
+    margin: theme.spacing(0),
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
+    width: 200,
   }
 });
  
@@ -64,11 +85,8 @@ class Home extends React.Component {
     this.state = {
         dialog: false,
         alias: '',
-        sex: '',
-        moon:'',
-        birthday:'',
-        male:'',
-        female:''
+        sex: 'female',
+        birthday: new Date()
 
     };
 }
@@ -80,6 +98,7 @@ handleValueChange = (e) => {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
+
     // if(e.target.value < 1) {
     //     this.setState({weight: 1});
     // }
@@ -171,34 +190,36 @@ handleValueChange = (e) => {
                   </Button>
                 </CardActions>  
             </CardActionArea>
-            <div>        
+            <div>
+               
               <Dialog open={this.state.dialog} onClose={this.handleDialogToggle}>
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogTitle id="form-dialog-title">운세기본정보입력</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
                     Fortune Teller 는 점괘를 보기 위한 기본정보가 꼭 필요합니다.
                     운세결과에 영향을 미치니 입력해 주십시요.
                   </DialogContentText>
-                    <TextField label="별명" type="text" name="alias" value={this.state.alias} onChange={this.handleValueChange} /><br />
-                    <div>
-      <Radio
-        checked={selectedValue === 'male'}
-        onChange={this.handleValueChange}
-        value={this.state.sex}
-        name="male"
-        inputProps={{ 'aria-label': 'A' }}
-      />
-      <Radio
-        checked={selectedValue === 'female'}
-        onChange={this.handleValueChange}
-        value={this.state.sex}
-        name="female"
-        inputProps={{ 'aria-label': 'B' }}
-      />
-      </div>
-                    <TextField label="성별" type="number" name="sex" value={this.state.sex} onChange={this.handleValueChange} /><br />
-                    <TextField label="음력/양력/윤달" type="text" name="moon" value={this.state.moon} onChange={this.handleValueChange} /><br />
-                    <TextField label="생년월일" type="number" name="birthday" value={this.state.birthday} onChange={this.handleValueChange} /><br />
+                    <TextField label="이름 or 별명" type="text" name="alias" value={this.state.alias} onChange={this.handleValueChange} /><br />
+                      <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend"></FormLabel>
+                        <RadioGroup aria-label="gender" name="sex" value={this.state.sex} onChange={this.handleValueChange}>
+                          <FormControlLabel value="female" control={<Radio />} label="여성" />
+                          <FormControlLabel value="male" control={<Radio />} label="남성" />
+                        </RadioGroup>
+                      </FormControl>              
+                    <form className={classes.container} noValidate>
+                      <TextField
+                        label="음력생년월일"
+                        type="date"
+                        name="birthday"
+                        value={this.state.birthday} 
+                        onChange={this.handleValueChange}
+                        className={classes.textField}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
+                    </form>            
                 </DialogContent>
                 <DialogActions>
                   <Button variant="contained" color="primary" onClick={this.handleSubmit}>확인</Button>
