@@ -50,8 +50,13 @@ const styles = theme => ({
  
 //   const [] = React.useState(false);
 
-class Medium extends React.Component {   
-    
+class MediumToday extends React.Component {
+
+  constructor(props) {
+    super(props);
+    console.log(this.props.match.params.id);
+}
+
  
     render() { 
         const { classes } = this.props;     
@@ -111,4 +116,4 @@ class Medium extends React.Component {
     }
 }
 
-export default withStyles(styles)(Medium);
+export default withStyles(styles)(MediumToday);

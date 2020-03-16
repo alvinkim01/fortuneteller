@@ -59,7 +59,7 @@ class Show extends Component {
 	}
 	
 	componentDidMount(){
-		console.log(this.props.match.params.id);
+		
 		const ref=firebase.firestore().collection('boards').doc(this.props.match.params.id);
 		ref.get().then((doc) =>{
 			if(doc.exists){

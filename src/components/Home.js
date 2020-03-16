@@ -24,8 +24,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import Calendar from 'react-calendar';
-import DatePicker from "react-datepicker"; 
+
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -86,7 +85,7 @@ class Home extends React.Component {
         dialog: false,
         alias: '',
         sex: 'female',
-        birthday: new Date()
+        birthday:''
 
     };
 }
@@ -106,17 +105,19 @@ handleValueChange = (e) => {
     //     this.setState({weight: 9});
     // }
 }
-// handleSubmit = () => {
-//     const word = {
-//         word: this.state.word,
-//         weight: this.state.weight
-//     }
-//     this.handleDialogToggle();
-//     if (!word.word && !word.weight) {
-//         return;
-//     }
-//     this._post(word);
-// }    
+
+handleSubmit = () => {
+    const fortune = {
+        alias : this.state.alias,
+        sex: this.state.sex,
+        birthday : this.state.birthday
+    }
+    this.handleDialogToggle();
+    // if (!fortune.alias && !fortune.birthday) {
+    //     return;
+    // }
+    // this._post(fortune);
+}    
  
     render() { 
         const { classes } = this.props; 
@@ -150,7 +151,7 @@ handleValueChange = (e) => {
               </CardContent>
                 <CardActions>
                 <Button variant="outlined" color="primary">
-                <Link component={RouterLink} to={"/mediumtoday"}>오늘의 운세보기</Link>  
+                <Link component={RouterLink} to={"/mediumtoday/"+this.state.birthday}>오늘의 운세보기</Link>  
                 </Button>
               </CardActions>     
                 <CardMedia
