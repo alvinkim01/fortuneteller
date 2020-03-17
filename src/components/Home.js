@@ -85,7 +85,8 @@ class Home extends React.Component {
         dialog: false,
         alias: '',
         sex: 'female',
-        birthday:''
+        birthday:'',
+        ymd:''
 
     };
 }
@@ -167,7 +168,9 @@ handleSubmit = () => {
     // console.log(monthbirth);
     const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
     console.log(result2.dayf);
-    // console.log(daybirth);
+
+    this.state.ymd=result.yearf+result1.monthf+result2.dayf;
+    console.log(this.state.ymd);
 
 
     // if (!fortune.alias && !fortune.birthday) {
@@ -208,7 +211,7 @@ handleSubmit = () => {
               </CardContent>
                 <CardActions>
                 <Button variant="outlined" color="primary">
-                <Link component={RouterLink} to={"/mediumtoday/"+this.state.birthday}>오늘의 운세보기</Link>  
+                <Link component={RouterLink} to={"/mediumtoday/"+this.state.ymd}>오늘의 운세보기</Link>  
                 </Button>
               </CardActions>     
                 <CardMedia

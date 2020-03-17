@@ -81,7 +81,7 @@ class MediumToday extends React.Component {
               </CardContent>
               <CardActions>
               <Button variant="outlined" color="primary">
-              <Link component={RouterLink} to={"/confirm"}>오늘의 운세보기</Link>                
+              <Link component={RouterLink} to={"/confirm/"+this.props.match.params.id}>오늘의 운세보기</Link>                
               </Button>
             </CardActions>     
               {/* <CardMedia

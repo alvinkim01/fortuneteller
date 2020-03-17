@@ -51,7 +51,11 @@ const styles = theme => ({
 //   const [] = React.useState(false);
 
 class Confirm extends React.Component {   
-    
+  constructor(props) {
+    super(props);
+    console.log(this.props.match.params.id);
+}
+   
  
     render() { 
         const { classes } = this.props;     
@@ -93,7 +97,7 @@ class Confirm extends React.Component {
      
              
               <Button variant="outlined" color="primary">
-              <Link component={RouterLink} to={"/show/" +'pNjfBMlCCJhdo3LXbiR8'}>오늘의 운세보기</Link>                
+              <Link component={RouterLink} to={"/show/" +this.props.match.params.id}>오늘의 운세보기</Link>                
               </Button>
               
               </CardActions>      
