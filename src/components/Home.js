@@ -113,6 +113,63 @@ handleSubmit = () => {
         birthday : this.state.birthday
     }
     this.handleDialogToggle();
+     var age;
+     age = 2020 - fortune.birthday.substring(0,4) + 1 ;
+
+     const inventory = [
+      {agef: 1, yearf: '2'},{agef: 2, yearf: '5'},{agef: 3, yearf: '3'},{agef: 4, yearf: '5'},{agef: 5, yearf: '3'},
+      {agef: 6, yearf: '2'},{agef: 7, yearf: '5'},{agef: 8, yearf: '3'},{agef: 9, yearf: '5'},{agef: 10, yearf: '3'},
+      {agef: 11, yearf: '2'},{agef: 12, yearf: '5'},{agef: 13, yearf: '3'},{agef: 14, yearf: '5'},{agef: 15, yearf: '3'},
+      {agef: 16, yearf: '2'},{agef: 17, yearf: '5'},{agef: 18, yearf: '3'},{agef: 19, yearf: '5'},{agef: 20, yearf: '3'},
+      {agef: 21, yearf: '2'},{agef: 22, yearf: '5'},{agef: 23, yearf: '3'},{agef: 24, yearf: '5'},{agef: 25, yearf: '3'},
+      {agef: 26, yearf: '2'},{agef: 27, yearf: '5'},{agef: 28, yearf: '3'},{agef: 29, yearf: '5'},{agef: 30, yearf: '3'},
+      {agef: 31, yearf: '2'},{agef: 32, yearf: '5'},{agef: 33, yearf: '3'},{agef: 34, yearf: '5'},{agef: 35, yearf: '3'},
+      {agef: 36, yearf: '2'},{agef: 37, yearf: '5'},{agef: 38, yearf: '3'},{agef: 39, yearf: '5'},{agef: 40, yearf: '3'},
+      {agef: 41, yearf: '2'},{agef: 42, yearf: '5'},{agef: 43, yearf: '3'},{agef: 44, yearf: '5'},{agef: 45, yearf: '3'},
+      {agef: 46, yearf: '2'},{agef: 47, yearf: '5'},{agef: 48, yearf: '3'},{agef: 49, yearf: '5'},{agef: 50, yearf: '3'},
+      {agef: 51, yearf: '2'},{agef: 52, yearf: '5'},{agef: 53, yearf: '8'},{agef: 54, yearf: '5'},{agef: 55, yearf: '3'},
+      {agef: 56, yearf: '2'},{agef: 57, yearf: '5'},{agef: 58, yearf: '3'},{agef: 59, yearf: '5'},{agef: 60, yearf: '3'},
+      {agef: 61, yearf: '2'},{agef: 62, yearf: '5'},{agef: 63, yearf: '3'},{agef: 64, yearf: '5'},{agef: 65, yearf: '3'},
+      {agef: 66, yearf: '2'},{agef: 67, yearf: '5'},{agef: 68, yearf: '3'},{agef: 69, yearf: '5'},{agef: 70, yearf: '3'},
+      {agef: 71, yearf: '2'},{agef: 72, yearf: '5'},{agef: 73, yearf: '3'},{agef: 74, yearf: '5'},{agef: 75, yearf: '3'},
+      {agef: 76, yearf: '2'},{agef: 77, yearf: '5'},{agef: 79, yearf: '3'},{agef: 79, yearf: '5'},{agef: 80, yearf: '3'},
+      {agef: 81, yearf: '2'},{agef: 82, yearf: '5'},{agef: 83, yearf: '3'},{agef: 84, yearf: '5'},{agef: 85, yearf: '3'},
+      {agef: 86, yearf: '2'},{agef: 87, yearf: '5'},{agef: 88, yearf: '3'},{agef: 89, yearf: '5'},{agef: 90, yearf: '3'},
+      {agef: 91, yearf: '2'},{agef: 92, yearf: '5'},{agef: 93, yearf: '3'},{agef: 94, yearf: '5'},{agef: 95, yearf: '3'},
+      {agef: 96, yearf: '2'},{agef: 97, yearf: '5'},{agef: 98, yearf: '3'},{agef: 99, yearf: '5'},{agef: 10, yearf: '3'}
+      
+  ];
+  //상수(태세수)
+  const result = inventory.find(yearf => yearf.agef === age);  
+  console.log(result.yearf);
+
+
+  //중수(월건수)
+  const monthinventory = [
+    {month: '01', monthf: '6'},{month: '02', monthf: '2'},{month: '03', monthf: '1'},{month: '04', monthf: '5'},{month: '05', monthf: '3'},
+    {month: '06', monthf: '6'},{month: '07', monthf: '3'},{month: '08', monthf: '2'},{month: '09', monthf: '5'},{month: '10', monthf: '4'},
+    {month: '11', monthf: '1'},{month: '12', monthf: '5'}]
+
+    var birthmonth;
+    birthmonth= fortune.birthday.substring(5,7);
+
+    const result1 = monthinventory.find(montht=>montht.month===birthmonth);
+    console.log(result1.monthf);
+
+    //하수 (일진수)
+    const dayinventory = [
+    {monthday: '0101', dayf: '4'},{monthday: '0102', dayf: '3'},{monthday: '0103', dayf: '1'},{monthday: '014', dayf: '1'},{monthday: '015', dayf: '2'}]
+
+    var daybirth;
+    var monthbirth;
+    monthbirth = fortune.birthday.substring(5,7)+fortune.birthday.substring(8,11);
+    // daybirth = fortune.birthday.substring(8,11);
+    // console.log(monthbirth);
+    const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
+    console.log(result2.dayf);
+    // console.log(daybirth);
+
+
     // if (!fortune.alias && !fortune.birthday) {
     //     return;
     // }
