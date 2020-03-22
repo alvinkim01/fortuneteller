@@ -24,8 +24,8 @@ const styles = theme => ({
     }
   },
   media: {
-    paddingTop: "60%",
-    height : 40
+    paddingTop: "80%",
+    height : 80
   },
   content: {
     textAlign: "left",
@@ -71,33 +71,26 @@ class Confirm extends React.Component {
               />         
                 
             <CardActionArea>
-              <CardContent className={classes.content}>
-                <Typography gutterBottom  component="h5">
-                  1968년5월12일(음/평달) 쾌걸님
+ 
+              <CardContent className={classes.content}>      
+              <Typography gutterBottom  component="h5">
+                  -------------------------------------
                 </Typography>
-     
+                <Typography variant="h6" gutterBottom>
+                  오늘의 운세 총론 
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                  풀이가 완료 되었습니다.
+                </Typography>
+                <Typography gutterBottom  component="h5">
+                -------------------------------------
+                </Typography>
               </CardContent>
 
-              <CardContent className={classes.content}>
-  
-    
-                 <CardMedia
-                    className={classes.media}
-                    image="/images/finish.png"
-                    title="cartoon"
-              />
-        
-                {/* <Typography variant="h6" gutterBottom>
-                  오늘의 운세 총론 풀이가 완료 되었습니다.
-                </Typography> */}
-
-              </CardContent>
-
-              <CardActions>
-     
+              <CardActions>     
              
               <Button variant="outlined" color="primary">
-              <Link component={RouterLink} to={"/show/" +this.props.match.params.id}>오늘의 운세보기</Link>                
+              <Link component={RouterLink} to={"/show/" +this.props.match.params.id}>오늘의 운세총운</Link>                
               </Button>
               
               </CardActions>      

@@ -24,7 +24,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -168,8 +167,8 @@ handleSubmit = () => {
     // console.log(monthbirth);
     const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
     console.log(result2.dayf);
-
-    this.state.ymd=result.yearf+result1.monthf+result2.dayf;
+    
+    this.state.ymd=result.yearf+result1.monthf+result2.dayf;    
     console.log(this.state.ymd);
 
 
@@ -196,6 +195,29 @@ handleSubmit = () => {
                     
                 />
             <CardActionArea>
+              <CardMedia
+                  className={classes.media}
+                  image="/images/fortune_teller_logo.png"
+                  title="미래 직업은..."
+                />
+                <CardContent className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    미래 직업
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    미래의 직업을 AI가 알려주는 사이트
+                  </Typography>
+                </CardContent>
+                  <CardActions>
+                  <Button variant="outlined" color="primary">
+                  <Link component={RouterLink} to={"/futurejob"}>미래의 직업보기</Link>  
+                  </Button>
+                </CardActions>     
+                <CardMedia
+                  className={classes.media}
+                  image="/images/tojungbigul.png"
+                  title="Contemplative Reptile"
+                />
               <CardMedia
                 className={classes.media}
                 image="/images/day_fortune.jpg"
