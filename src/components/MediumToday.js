@@ -81,7 +81,7 @@ class MediumToday extends React.Component {
               </CardContent>
               <CardActions>
               <Button variant="outlined" color="primary">
-              <Link component={RouterLink} to={"/confirm/"+this.props.match.params.id}>오늘의 운세보기</Link>                
+              <Link component={RouterLink} to={"/confirm/"+this.props.match.params.id}>오늘의 운세총론</Link>                
               </Button>
             </CardActions>     
               {/* <CardMedia
@@ -91,16 +91,45 @@ class MediumToday extends React.Component {
               /> */}
               <CardContent className={classes.content}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  성공 재물운
+                  애정운
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  오늘 나의 재물운을 한눈에...
+                  오늘 나의 애정운을 한눈에...
+                </Typography>
+              </CardContent>
+              <CardActions>
+              <Button variant="outlined" color="primary">
+              <Link component={RouterLink} to={"/confirmlove/"+this.props.match.params.id}>애정운 운세보기</Link>
+                
+              </Button>
+            </CardActions>  
+    
+            <CardContent className={classes.content}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  사업운
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  오늘 나의 사업운을 한눈에...
                 </Typography>
               </CardContent>
               <CardActions>
               <Button variant="outlined" color="primary">
 
-                오늘의 재물 운세보기
+                사업운 운세보기
+              </Button>
+            </CardActions>  
+            <CardContent className={classes.content}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  금전운
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  오늘 나의 금전운을 한눈에...
+                </Typography>
+              </CardContent>
+              <CardActions>
+              <Button variant="outlined" color="primary">
+
+                금전운 운세보기
               </Button>
             </CardActions>  
             </CardActionArea>

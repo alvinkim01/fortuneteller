@@ -1,49 +1,37 @@
 import React from 'react';
 import './FutureJob.css';
+import { tmImage } from '@teachablemachine/image';
 
 class FutureJob extends React.Component {
+
     constructor(props) {
       super(props);
-      this.state = {file: '',imagePreviewUrl: '',imagePreview:''};
+      this.state = {file: '',imagePreviewUrl: '',imagePreview:'',model:'',maxPredictions:'',prediction:[]};
     }
-   _initModel = async () => {
+
+    componentDidMount(){
       const URL = "https://teachablemachine.withgoogle.com/models/o9D1N5TN/";
       const modelURL = URL + "model.json";
       const metadataURL = URL + "metadata.json";
 
-      const model = await tmImage.load(modelURL, metadataURL);
-      const maxPredictions = 6;
-      return model;
+      const model = tmImage.load(modelURL, metadataURL)
+			const maxPredictions = 4
+			this.setState({model});
+			this.setState({maxPredictions});	
+   
+    }
 
-   }
+     _initModel = () => {   
+
+      this.setState({prediction : this.state.model.predict(this.state.imagePreview, false)});
+      console.log('prediction:',this.state.prediction);
+     
+      // for (let i = 0; i < maxPredictions; i++) {
+      //    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+
+      }
 
    
-//    let model, webcam, labelContainer, maxPredictions;
-//    async function init() {
-//     const modelURL = URL + "model.json";
-//     const metadataURL = URL + "metadata.json";
-//     // load the model and metadata
-//     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-//     // or files from your local hard drive
-//     // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-//     model = await tmImage.load(modelURL, metadataURL);
-//     maxPredictions = model.getTotalClasses();
-//     labelContainer = document.getElementById("label-container");
-//     for (let i = 0; i < maxPredictions; i++) { // and class labels
-//         labelContainer.appendChild(document.createElement("div"));
-//     }
-// }
-// // run the webcam image through the image model
-// async function predict() {
-//     // predict can take in an image, video or canvas html element
-//     var image = document.getElementById("face-image")
-//     const prediction = await model.predict(image, false);
-//     for (let i = 0; i < maxPredictions; i++) {
-//         const classPrediction =
-//             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-//         labelContainer.childNodes[i].innerHTML = classPrediction;
-//     }
-// }
     _handleSubmit(e) {
       e.preventDefault();
       // TODO: do something with -> this.state.file
@@ -74,7 +62,10 @@ class FutureJob extends React.Component {
       } else {
         $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
       }
-  
+
+      const predictList = this.state.prediction.map( (classname,probability,index)=>
+                          (<li key={index}>{classname}{probability}</li>) )
+
       return (
         <div className="previewComponent">
           <form onSubmit={(e)=>this._handleSubmit(e)}>
@@ -87,7 +78,11 @@ class FutureJob extends React.Component {
           </form>
           <div className="imgPreview">
             {$imagePreview}
-          </div>
+          </div>        
+          <button onClick={this._initModel}>모델예측</button>
+        <ul>
+          {predictList}
+        </ul>
         </div>
       )
     }
