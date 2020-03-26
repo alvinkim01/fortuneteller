@@ -1,7 +1,7 @@
 import React from 'react';
 import './FutureJob.css';
 
-class FureJob extends React.Component {
+class FutureJob extends React.Component {
     constructor(props) {
       super(props);
       this.state = {file: '',imagePreviewUrl: ''};
@@ -56,4 +56,4 @@ class FureJob extends React.Component {
     }
   }
     
-  export default FureJob;
+  export default FutureJob;
