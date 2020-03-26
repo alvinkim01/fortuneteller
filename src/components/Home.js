@@ -165,10 +165,17 @@ handleSubmit = () => {
     // daybirth = fortune.birthday.substring(8,11);
     // console.log(monthbirth);
     const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
+<<<<<<< HEAD
     // console.log(result2.dayf);
     
     const ymd=result.yearf+result1.monthf+result2.dayf;    
     this.setState({ymd : ymd});
+=======
+    console.log(result2.dayf);
+    
+    this.state.ymd=result.yearf+result1.monthf+result2.dayf;    
+    console.log(this.state.ymd);
+>>>>>>> ba02eef81827b3b94609f1733b5bc3210806377d
 
 
     // if (!fortune.alias && !fortune.birthday) {
@@ -198,7 +205,34 @@ handleSubmit = () => {
                      
                         
             <CardActionArea>
+<<<<<<< HEAD
                 <CardMedia          
+=======
+              <CardMedia
+                  className={classes.media}
+                  image="/images/fortune_teller_logo.png"
+                  title="미래 직업은..."
+                />
+                <CardContent className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    미래 직업
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    미래의 직업을 AI가 알려주는 사이트
+                  </Typography>
+                </CardContent>
+                  <CardActions>
+                  <Button variant="outlined" color="primary">
+                  <Link component={RouterLink} to={"/futurejob"}>미래의 직업보기</Link>  
+                  </Button>
+                </CardActions>     
+                <CardMedia
+                  className={classes.media}
+                  image="/images/tojungbigul.png"
+                  title="Contemplative Reptile"
+                />
+              <CardMedia
+>>>>>>> ba02eef81827b3b94609f1733b5bc3210806377d
                 className={classes.media}
                 image="/images/day_fortune.jpg"
                 title="Contemplative Reptile"
