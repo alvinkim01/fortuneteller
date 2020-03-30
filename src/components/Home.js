@@ -38,8 +38,8 @@ const styles = theme => ({
     }
   },
   media: {
-    paddingTop: "40%",
-    height : 40
+    paddingTop: "50%",
+    height : 60
   },
   content: {
     textAlign: "left",
@@ -127,7 +127,7 @@ handleSubmit = () => {
       {agef: 36, yearf: '2'},{agef: 37, yearf: '5'},{agef: 38, yearf: '3'},{agef: 39, yearf: '5'},{agef: 40, yearf: '3'},
       {agef: 41, yearf: '2'},{agef: 42, yearf: '5'},{agef: 43, yearf: '3'},{agef: 44, yearf: '5'},{agef: 45, yearf: '3'},
       {agef: 46, yearf: '2'},{agef: 47, yearf: '5'},{agef: 48, yearf: '3'},{agef: 49, yearf: '5'},{agef: 50, yearf: '3'},
-      {agef: 51, yearf: '2'},{agef: 52, yearf: '5'},{agef: 53, yearf: '8'},{agef: 54, yearf: '5'},{agef: 55, yearf: '3'},
+      {agef: 51, yearf: '2'},{agef: 52, yearf: '5'},{agef: 53, yearf: '7'},{agef: 54, yearf: '5'},{agef: 55, yearf: '3'},
       {agef: 56, yearf: '2'},{agef: 57, yearf: '5'},{agef: 58, yearf: '3'},{agef: 59, yearf: '5'},{agef: 60, yearf: '3'},
       {agef: 61, yearf: '2'},{agef: 62, yearf: '5'},{agef: 63, yearf: '3'},{agef: 64, yearf: '5'},{agef: 65, yearf: '3'},
       {agef: 66, yearf: '2'},{agef: 67, yearf: '5'},{agef: 68, yearf: '3'},{agef: 69, yearf: '5'},{agef: 70, yearf: '3'},
@@ -146,7 +146,7 @@ handleSubmit = () => {
 
   //중수(월건수)
   const monthinventory = [
-    {month: '01', monthf: '6'},{month: '02', monthf: '2'},{month: '03', monthf: '1'},{month: '04', monthf: '5'},{month: '05', monthf: '3'},
+    {month: '01', monthf: '5'},{month: '02', monthf: '2'},{month: '03', monthf: '1'},{month: '04', monthf: '5'},{month: '05', monthf: '5'},
     {month: '06', monthf: '6'},{month: '07', monthf: '3'},{month: '08', monthf: '2'},{month: '09', monthf: '5'},{month: '10', monthf: '4'},
     {month: '11', monthf: '1'},{month: '12', monthf: '5'}]
 
@@ -158,18 +158,17 @@ handleSubmit = () => {
 
     //하수 (일진수)
     const dayinventory = [
-    {monthday: '0101', dayf: '4'},{monthday: '0102', dayf: '3'},{monthday: '0103', dayf: '1'},{monthday: '014', dayf: '1'},{monthday: '015', dayf: '2'}]
+    {monthday: '0101', dayf: '4'},{monthday: '0102', dayf: '2'},{monthday: '0103', dayf: '1'},{monthday: '014', dayf: '1'},{monthday: '015', dayf: '2'}]
 
-    var daybirth;
     var monthbirth;
     monthbirth = fortune.birthday.substring(5,7)+fortune.birthday.substring(8,11);
     // daybirth = fortune.birthday.substring(8,11);
     // console.log(monthbirth);
     const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
-    console.log(result2.dayf);
+    // console.log(result2.dayf);
     
-    this.state.ymd=result.yearf+result1.monthf+result2.dayf;    
-    console.log(this.state.ymd);
+    const ymd=result.yearf+result1.monthf+result2.dayf;    
+    this.setState({ymd : ymd});
 
 
     // if (!fortune.alias && !fortune.birthday) {
@@ -180,45 +179,26 @@ handleSubmit = () => {
  
     render() { 
         const { classes } = this.props; 
-       
+        const loggedYmd = this.state.ymd;
         return (     
-            <Card className={classes.card}>
-              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
-                운세 기본정보입력
-              </Button>
+            <Card className={classes.card}>        
                <CardHeader
                     avatar={
                     <Avatar aria-label="logo" className={classes.avatar}>
                         F
                     </Avatar>
-                    }
-                    
+                    }                    
                 />
+              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                <p>운세</p><p> 기본정보입력</p>
+              </Button>              
+                  { loggedYmd ? <Typography  variant="body2" color="textSecondary" component="p">                     
+                        <b>(별명 또는 이름) : {this.state.alias}    (생년월일) :{this.state.birthday}</b><p></p>
+                     </Typography> :<p><b>운세 기본정보를 입력하셔야 운세정보가 사용 가능합니다.</b></p> }
+                     
+                        
             <CardActionArea>
-              <CardMedia
-                  className={classes.media}
-                  image="/images/fortune_teller_logo.png"
-                  title="미래 직업은..."
-                />
-                <CardContent className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    미래 직업
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    미래의 직업을 AI가 알려주는 사이트
-                  </Typography>
-                </CardContent>
-                  <CardActions>
-                  <Button variant="outlined" color="primary">
-                  <Link component={RouterLink} to={"/futurejob"}>미래의 직업보기</Link>  
-                  </Button>
-                </CardActions>     
-                <CardMedia
-                  className={classes.media}
-                  image="/images/tojungbigul.png"
-                  title="Contemplative Reptile"
-                />
-              <CardMedia
+                <CardMedia          
                 className={classes.media}
                 image="/images/day_fortune.jpg"
                 title="Contemplative Reptile"
