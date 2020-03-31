@@ -185,7 +185,7 @@ handleSubmit = () => {
                <CardHeader
                     avatar={
                     <Avatar aria-label="logo" className={classes.avatar}>
-                        F
+                        AI
                     </Avatar>
                     }                    
                 />
@@ -208,13 +208,18 @@ handleSubmit = () => {
                   오늘의운세
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  오늘의 운세를 말하는 사이트
+                  오늘의 운세를 AI포춘에게 의뢰해 보죠 오늘의 일진은 어떤지?
                 </Typography>
               </CardContent>
                 <CardActions>
-                <Button variant="outlined" color="primary">
-                <Link component={RouterLink} to={"/mediumtoday/"+this.state.ymd}>오늘의 운세보기</Link>  
-                </Button>
+                {loggedYmd ?
+                   <Button variant="outlined" color="primary">
+                   <Link component={RouterLink} to={"/mediumtoday/"+this.state.ymd}>오늘의 운세보기</Link>
+                   </Button>
+                  : <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                     AI포춘 기본정보입력</Button> }
+                  
+                
               </CardActions>     
                 <CardMedia
                   className={classes.media}
