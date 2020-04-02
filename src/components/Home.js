@@ -43,7 +43,8 @@ const styles = theme => ({
   },
   content: {
     textAlign: "left",
-    padding: theme.spacing.unit * 3
+    padding: theme.spacing(3)
+    
   },
   heading: {
     fontWeight: "bold"
@@ -167,7 +168,13 @@ handleSubmit = () => {
     const result2 = dayinventory.find(monthday=>monthday.monthday===monthbirth);
     // console.log(result2.dayf);
     
-    const ymd=result.yearf+result1.monthf+result2.dayf;    
+    var dayf;
+    
+    if (dayf ===null){
+      console.log('day데이타가 부정확합니다.');
+      return;
+    }   
+    const ymd=result.yearf+result1.monthf+result2.dayf; 
     this.setState({ymd : ymd});
 
 
@@ -189,12 +196,12 @@ handleSubmit = () => {
                     </Avatar>
                     }                    
                 />
-              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+              {/* <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
                 <p>운세</p><p> 기본정보입력</p>
               </Button>              
                   { loggedYmd ? <Typography  variant="body2" color="textSecondary" component="p">                     
                         <b>(별명 또는 이름) : {this.state.alias}    (생년월일) :{this.state.birthday}</b><p></p>
-                     </Typography> :<p><b>운세 기본정보를 입력하셔야 운세정보가 사용 가능합니다.</b></p> }
+                     </Typography> :<p><b>운세 기본정보를 입력하셔야 운세정보가 사용 가능합니다.</b></p> } */}
                      
                         
             <CardActionArea>
@@ -264,8 +271,8 @@ handleSubmit = () => {
                 <DialogTitle id="form-dialog-title">운세기본정보입력</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
-                    Fortune Teller 는 점괘를 보기 위한 기본정보가 꼭 필요합니다.
-                    운세결과에 영향을 미치니 입력해 주십시요.
+                    AI Fortune 은 정확한 서비스 제공을  위한 기본정보가 꼭 필요합니다.
+                    (* 어떤 개인정보도 기록 및 보관 되지 않습니다.)
                   </DialogContentText>
                     <TextField label="이름 or 별명" type="text" name="alias" value={this.state.alias} onChange={this.handleValueChange} /><br />
                       <FormControl component="fieldset" className={classes.formControl}>
