@@ -50,7 +50,7 @@ const styles = theme => ({
    
 
 
-class Show extends Component {
+class ShowYear extends Component {
 
 	constructor(props) {
 		super(props);
@@ -86,7 +86,7 @@ class Show extends Component {
 				<CardHeader
                 avatar={
                 <Avatar aria-label="logo" className={classes.avatar}>
-                    F
+                    AI F
                 </Avatar>
                 }
               />                 
@@ -96,7 +96,7 @@ class Show extends Component {
 				  {this.state.title}
           		</Typography>
 				<Typography gutterBottom variant="h6" component="h3">
-					총운 :
+					2020 총운 :
           		</Typography>
           		<Typography>
 				  {renderHTML(this.state.totalfortune)}
@@ -108,4 +108,4 @@ class Show extends Component {
 	}
 }
 
-export default withStyles(styles)(Show);
+export default withStyles(styles)(ShowYear);
