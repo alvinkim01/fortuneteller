@@ -54,7 +54,10 @@ class MediumToday extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.id);
+    // console.log(this.props.match.params.id);
+    // if (this.props.match.params.id===''){
+    //   ()=>{history.push(`/`)}
+    // }
 }
 
  

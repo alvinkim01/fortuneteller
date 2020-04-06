@@ -38,7 +38,7 @@ const styles = theme => ({
     }
   },
   media: {
-    paddingTop: "50%",
+    paddingTop: "80%",
     height : 60
   },
   content: {
@@ -191,13 +191,18 @@ handleSubmit = () => {
             <Card className={classes.card}>        
                <CardHeader
                     avatar={
-                    <Avatar aria-label="logo" className={classes.avatar}>
-                        AI
-                    </Avatar>
+                      <Avatar aria-label="logo" className={classes.avatar}>
+                        AI F
+                      </Avatar>
                     }                    
                 />
+<<<<<<< HEAD
               {/* <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
                 <p>운세</p><p> 기본정보입력</p>
+=======
+              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                <p>운세</p><p> AI 포춘 기본정보입력</p>
+>>>>>>> 422284f4530ef3cdfc261bf1de50b17565ae86a3
               </Button>              
                   { loggedYmd ? <Typography  variant="body2" color="textSecondary" component="p">                     
                         <b>(별명 또는 이름) : {this.state.alias}    (생년월일) :{this.state.birthday}</b><p></p>
@@ -207,7 +212,7 @@ handleSubmit = () => {
             <CardActionArea>
                 <CardMedia          
                 className={classes.media}
-                image="/images/day_fortune.jpg"
+                image="/images/day_fortune.png"
                 title="Contemplative Reptile"
               />
               <CardContent className={classes.content}>
@@ -231,7 +236,7 @@ handleSubmit = () => {
                 <CardMedia
                   className={classes.media}
                   image="/images/tojungbigul.png"
-                  title="Contemplative Reptile"
+                  title="2020 운세"
                 />
                 <CardContent className={classes.content}>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -242,9 +247,12 @@ handleSubmit = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="outlined" color="primary">
-                    2020년 운세보기
-                  </Button>
+                {loggedYmd ?
+                   <Button variant="outlined" color="primary">
+                   <Link component={RouterLink} to={"/mediumyear/"+this.state.ymd}>2020년 운세보기</Link>
+                   </Button>
+                  : <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                     AI포춘 기본정보입력</Button> }
                 </CardActions>  
                 <CardMedia
                   className={classes.media}
@@ -260,9 +268,12 @@ handleSubmit = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="outlined" color="primary">
-                    월간 운세보기
-                  </Button>
+                {loggedYmd ?
+                   <Button variant="outlined" color="primary">
+                   <Link component={RouterLink} to={"/mediummonth/"+this.state.ymd}>2020년 월간운세</Link>
+                   </Button>
+                  : <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
+                     AI포춘 기본정보입력</Button> }
                 </CardActions>  
             </CardActionArea>
             <div>
