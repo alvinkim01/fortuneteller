@@ -137,7 +137,7 @@ handleSubmit = () => {
       {agef: 81, yearf: '2'},{agef: 82, yearf: '5'},{agef: 83, yearf: '3'},{agef: 84, yearf: '5'},{agef: 85, yearf: '3'},
       {agef: 86, yearf: '2'},{agef: 87, yearf: '5'},{agef: 88, yearf: '3'},{agef: 89, yearf: '5'},{agef: 90, yearf: '3'},
       {agef: 91, yearf: '2'},{agef: 92, yearf: '5'},{agef: 93, yearf: '3'},{agef: 94, yearf: '5'},{agef: 95, yearf: '3'},
-      {agef: 96, yearf: '2'},{agef: 97, yearf: '5'},{agef: 98, yearf: '3'},{agef: 99, yearf: '5'},{agef: 10, yearf: '3'}
+      {agef: 96, yearf: '2'},{agef: 97, yearf: '5'},{agef: 98, yearf: '3'},{agef: 99, yearf: '5'},{agef: 100, yearf: '3'}
       
   ];
   //상수(태세수)
@@ -159,7 +159,9 @@ handleSubmit = () => {
 
     //하수 (일진수)
     const dayinventory = [
-    {monthday: '0101', dayf: '4'},{monthday: '0102', dayf: '2'},{monthday: '0103', dayf: '1'},{monthday: '014', dayf: '1'},{monthday: '015', dayf: '2'}]
+    {monthday: '0101', dayf: '4'},{monthday: '0102', dayf: '2'},{monthday: '0103', dayf: '1'},{monthday: '0104', dayf: '1'},
+    {monthday: '0105', dayf: '2'},{monthday: '0106', dayf: '1'},{monthday: '0107', dayf: '1'},{monthday: '0108', dayf: '1'},
+    ]
 
     var monthbirth;
     monthbirth = fortune.birthday.substring(5,7)+fortune.birthday.substring(8,11);
