@@ -196,13 +196,8 @@ handleSubmit = () => {
                       </Avatar>
                     }                    
                 />
-<<<<<<< HEAD
               {/* <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
                 <p>운세</p><p> 기본정보입력</p>
-=======
-              <Button variant="outlined" color="secondary" onClick={this.handleDialogToggle}>
-                <p>운세</p><p> AI 포춘 기본정보입력</p>
->>>>>>> 422284f4530ef3cdfc261bf1de50b17565ae86a3
               </Button>              
                   { loggedYmd ? <Typography  variant="body2" color="textSecondary" component="p">                     
                         <b>(별명 또는 이름) : {this.state.alias}    (생년월일) :{this.state.birthday}</b><p></p>
