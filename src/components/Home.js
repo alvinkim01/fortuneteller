@@ -168,14 +168,25 @@ handleSubmit = () => {
     {monthday: '0125', dayf: '1'},{monthday: '0126', dayf: '1'},{monthday: '0127', dayf: '3'},{monthday: '0128', dayf: '2'},
     {monthday: '0129', dayf: '3'},{monthday: '0130', dayf: '2'},
     
-    {monthday: '0101', dayf: '3'},{monthday: '0102', dayf: '3'},{monthday: '0103', dayf: '1'},{monthday: '0104', dayf: '1'},
-    {monthday: '0105', dayf: '2'},{monthday: '0106', dayf: '1'},{monthday: '0107', dayf: '1'},{monthday: '0108', dayf: '1'},
-    {monthday: '0109', dayf: '2'},{monthday: '0110', dayf: '2'},{monthday: '0111', dayf: '1'},{monthday: '0112', dayf: '1'},
-    {monthday: '0113', dayf: '3'},{monthday: '0114', dayf: '3'},{monthday: '0115', dayf: '2'},{monthday: '0116', dayf: '2'},
-    {monthday: '0117', dayf: '3'},{monthday: '0118', dayf: '1'},{monthday: '0119', dayf: '1'},{monthday: '0120', dayf: '2'},
-    {monthday: '0121', dayf: '3'},{monthday: '0122', dayf: '3'},{monthday: '0123', dayf: '1'},{monthday: '0124', dayf: '1'},
-    {monthday: '0125', dayf: '1'},{monthday: '0126', dayf: '1'},{monthday: '0127', dayf: '3'},{monthday: '0128', dayf: '2'},
-    {monthday: '0129', dayf: '3'},{monthday: '0130', dayf: '2'}, 
+    {monthday: '0201', dayf: '3'},{monthday: '0202', dayf: '3'},{monthday: '0203', dayf: '1'},{monthday: '0204', dayf: '1'},
+    {monthday: '0205', dayf: '2'},{monthday: '0206', dayf: '1'},{monthday: '0207', dayf: '1'},{monthday: '0208', dayf: '1'},
+    {monthday: '0209', dayf: '2'},{monthday: '0210', dayf: '2'},{monthday: '0211', dayf: '1'},{monthday: '0212', dayf: '1'},
+    {monthday: '0213', dayf: '3'},{monthday: '0214', dayf: '3'},{monthday: '0215', dayf: '2'},{monthday: '0216', dayf: '2'},
+    {monthday: '0217', dayf: '3'},{monthday: '0218', dayf: '1'},{monthday: '0219', dayf: '1'},{monthday: '0220', dayf: '2'},
+    {monthday: '0221', dayf: '3'},{monthday: '0222', dayf: '3'},{monthday: '0223', dayf: '1'},{monthday: '0224', dayf: '1'},
+    {monthday: '0225', dayf: '1'},{monthday: '0226', dayf: '1'},{monthday: '0227', dayf: '3'},{monthday: '0228', dayf: '2'},
+    {monthday: '0229', dayf: '3'},{monthday: '0230', dayf: '2'}, 
+
+    {monthday: '0301', dayf: '3'},{monthday: '0302', dayf: '3'},{monthday: '0303', dayf: '1'},{monthday: '0304', dayf: '1'},
+    {monthday: '0305', dayf: '2'},{monthday: '0306', dayf: '1'},{monthday: '0307', dayf: '1'},{monthday: '0308', dayf: '1'},
+    {monthday: '0309', dayf: '2'},{monthday: '0310', dayf: '2'},{monthday: '0311', dayf: '1'},{monthday: '0312', dayf: '1'},
+    {monthday: '0313', dayf: '3'},{monthday: '0314', dayf: '3'},{monthday: '0315', dayf: '2'},{monthday: '0316', dayf: '2'},
+    {monthday: '0317', dayf: '3'},{monthday: '0318', dayf: '1'},{monthday: '0319', dayf: '1'},{monthday: '0320', dayf: '2'},
+    {monthday: '0321', dayf: '3'},{monthday: '0322', dayf: '3'},{monthday: '0323', dayf: '1'},{monthday: '0324', dayf: '1'},
+    {monthday: '0325', dayf: '1'},{monthday: '0326', dayf: '1'},{monthday: '0327', dayf: '3'},{monthday: '0328', dayf: '2'},
+    {monthday: '0329', dayf: '3'},{monthday: '0330', dayf: '2'},
+    
+    
     ]
 
     var monthbirth;
